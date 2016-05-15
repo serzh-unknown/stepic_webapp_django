@@ -8,6 +8,6 @@ def myapp(env, start_response):
     for key in keys:
         if body:
             body += "\n"
-        body += key + "=" + env[key]
+        body = body + key + "=" + env[key]
     start_response(status, headers)
     return [body]

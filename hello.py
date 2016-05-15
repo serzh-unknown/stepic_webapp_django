@@ -3,11 +3,9 @@ def myapp(env, start_response):
     headers = [
         ("Content-Type", "text/plain")
     ]
-    keys = env.keys()
-    body = ""
-    for key in keys:
-        if body:
-            body += "\n"
-        body = body + key + "=" + env[key]
+    s = env["QUERY_STRING"]
+    print s
+    s = s.replace("&","\n")
+    print s
     start_response(status, headers)
-    return [body]
+    return [s]
